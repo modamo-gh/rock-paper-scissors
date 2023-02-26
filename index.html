@@ -84,7 +84,17 @@
                     let playerSelection = prompt("Rock, paper, or scissors?");
                     let computerSelection = getComputerChoice();
                     const roundResults = playRound(playerSelection, computerSelection);
-                    console.log(roundResults);
+                    score += roundResults;
+
+                    if(score > 0){
+                        alert("You won!");
+                    }
+                    else if(score < 0){
+                        alert("You lose!");
+                    }
+                    else{
+                        alert("You tied!")
+                    }
                 }
             }
 
