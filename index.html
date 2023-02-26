@@ -81,7 +81,12 @@
                 let score = 0;
 
                 for(let i = 0; i < 5; i++){
-                    let playerSelection = prompt("Rock, paper, or scissors?");
+                    let playerSelection = "";
+
+                    while(playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors") {
+                        playerSelection = prompt("Rock, paper, or scissors");
+                    }
+
                     let computerSelection = getComputerChoice();
                     const roundResults = playRound(playerSelection, computerSelection);
                     score += roundResults;
