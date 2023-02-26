@@ -26,49 +26,55 @@
             }
 
             const playRound = (playerSelection, computerSelection) => {
-                let gameConclusion = "";
+                let roundScore = 0;
 
                 if(playerSelection.toLowerCase() === "rock"){
                     switch(computerSelection.toLowerCase()) {
                         case "rock":
-                            gameConclusion = "Tie!";
+                            console.log("Tie!");
                             break;
                         case "paper":
-                            gameConclusion = `You lose! ${computerSelection} covers ${playerSelection}`;
+                            console.log(`You lose! ${computerSelection} covers ${playerSelection}`);
+                            score--;
                             break;
                         case "scissors":
-                            gameConclusion = `You win! ${playerSelection} breaks ${computerSelection}`;
+                            console.log(`You win! ${playerSelection} breaks ${computerSelection}`);
+                            score++;
                             break;
                     }
                 }
                 else if (playerSelection.toLowerCase() === "paper"){
                     switch(computerSelection.toLowerCase()) {
                         case "rock":
-                            gameConclusion = `You win! ${playerSelection} covers ${computerSelection}`;
+                            console.log(`You win! ${playerSelection} covers ${computerSelection}`);
+                            score++;
                             break;
                         case "paper":
-                            gameConclusion = "Tie!";
+                            console.log("Tie!");
                             break;
                         case "scissors":
-                            gameConclusion = `You lose! ${computerSelection} cuts ${playerSelection}`;
+                            console.log(`You lose! ${computerSelection} cuts ${playerSelection}`);
+                            score--;
                             break;
                     }
                 }
                 else if(playerSelection.toLowerCase() === "scissors"){
                     switch(computerSelection.toLowerCase()) {
                         case "rock":
-                            gameConclusion = `You lose! ${computerSelection} breaks ${playerSelection}`;
+                            console.log(`You lose! ${computerSelection} breaks ${playerSelection}`);
+                            score--;
                             break;
                         case "paper":
-                            gameConclusion = `You win! ${playerSelection} cuts ${computerSelection}`;
+                            console.log(`You win! ${playerSelection} cuts ${computerSelection}`);
+                            score++;
                             break;
                         case "scissors":
-                            gameConclusion = `Tie`;
+                            console.log("Tie!")
                             break;
                     }
                 }
 
-                return gameConclusion;
+                return roundScore;
             }
 
             const game = function(){
