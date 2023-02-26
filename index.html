@@ -24,6 +24,52 @@
 
                 return computerChoice;
             }
+
+            const playGame = (playerSelection, computerSelection) => {
+                let gameConclusion = "";
+
+                if(playerSelection.toLowerCase() === "rock"){
+                    switch(computerSelection.toLowerCase()) {
+                        case "rock":
+                            gameConclusion = "Tie!";
+                            break;
+                        case "paper":
+                            gameConclusion = `You lose! ${computerSelection} covers ${playerSelection}`;
+                            break;
+                        case "scissors":
+                            gameConclusion = `You win! ${playerSelection} breaks ${computerSelection}`;
+                            break;
+                    }
+                }
+                else if (playerSelection.toLowerCase() === "paper"){
+                    switch(computerSelection.toLowerCase()) {
+                        case "rock":
+                            gameConclusion = `You win! ${playerSelection} covers ${computerSelection}`;
+                            break;
+                        case "paper":
+                            gameConclusion = "Tie!";
+                            break;
+                        case "scissors":
+                            gameConclusion = `You lose! ${computerSelection} cuts ${playerSelection}`;
+                            break;
+                    }
+                }
+                else if(playerSelection.toLowerCase() === "scissors"){
+                    switch(computerSelection.toLowerCase()) {
+                        case "rock":
+                            gameConclusion = `You lose! ${computerSelection} breaks ${playerSelection}`;
+                            break;
+                        case "paper":
+                            gameConclusion = `You win! ${playerSelection} cuts ${computerSelection}`;
+                            break;
+                        case "scissors":
+                            gameConclusion = `Tie`;
+                            break;
+                    }
+                }
+
+                return gameConclusion;
+            }
         </script>
     </body>
 </html>
