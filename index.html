@@ -71,13 +71,17 @@
                 return gameConclusion;
             }
 
-            // const game = function(){
-            //     let score = 0;
+            const game = function(){
+                let score = 0;
 
-            //     for(let i = 0; i < 5; i++){
+                for(let i = 0; i < 5; i++){
+                    let playerSelection = prompt("Rock, paper, or scissors?");
+                    const roundResults = playRound();
+                    console.log(roundResults);
+                }
+            }
 
-            //     }
-            // }
+            game();
         </script>
     </body>
 </html>
