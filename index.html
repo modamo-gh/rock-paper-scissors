@@ -76,7 +76,8 @@
 
                 for(let i = 0; i < 5; i++){
                     let playerSelection = prompt("Rock, paper, or scissors?");
-                    const roundResults = playRound();
+                    let computerSelection = getComputerChoice();
+                    const roundResults = playRound(playerSelection, computerSelection);
                     console.log(roundResults);
                 }
             }
