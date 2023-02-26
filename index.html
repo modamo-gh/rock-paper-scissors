@@ -35,11 +35,11 @@
                             break;
                         case "paper":
                             console.log(`You lose! ${computerSelection} covers ${playerSelection}`);
-                            score--;
+                            roundScore--;
                             break;
                         case "scissors":
                             console.log(`You win! ${playerSelection} breaks ${computerSelection}`);
-                            score++;
+                            roundScore++;
                             break;
                     }
                 }
@@ -47,14 +47,14 @@
                     switch(computerSelection.toLowerCase()) {
                         case "rock":
                             console.log(`You win! ${playerSelection} covers ${computerSelection}`);
-                            score++;
+                            roundScore++;
                             break;
                         case "paper":
                             console.log("Tie!");
                             break;
                         case "scissors":
                             console.log(`You lose! ${computerSelection} cuts ${playerSelection}`);
-                            score--;
+                            roundScore--;
                             break;
                     }
                 }
@@ -62,11 +62,11 @@
                     switch(computerSelection.toLowerCase()) {
                         case "rock":
                             console.log(`You lose! ${computerSelection} breaks ${playerSelection}`);
-                            score--;
+                            roundScore--;
                             break;
                         case "paper":
                             console.log(`You win! ${playerSelection} cuts ${computerSelection}`);
-                            score++;
+                            roundScore++;
                             break;
                         case "scissors":
                             console.log("Tie!")
