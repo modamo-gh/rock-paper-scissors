@@ -85,16 +85,16 @@
                     let computerSelection = getComputerChoice();
                     const roundResults = playRound(playerSelection, computerSelection);
                     score += roundResults;
+                }
 
-                    if(score > 0){
-                        alert("You won!");
-                    }
-                    else if(score < 0){
-                        alert("You lose!");
-                    }
-                    else{
-                        alert("You tied!")
-                    }
+                if (score > 0) {
+                    alert("You won!");
+                }
+                else if (score < 0) {
+                    alert("You lose!");
+                }
+                else {
+                    alert("You tied!")
                 }
             }
 
