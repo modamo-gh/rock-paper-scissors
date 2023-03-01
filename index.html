@@ -7,6 +7,10 @@
 </head>
 
 <body>
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+
     <script>
         function getComputerChoice() {
             let computerChoice = "";
@@ -30,8 +34,8 @@
         const playRound = (playerSelection, computerSelection) => {
             let roundScore = 0;
 
-            if (playerSelection.toLowerCase() === "rock") {
-                switch (computerSelection.toLowerCase()) {
+            if (playerSelection.toString().toLowerCase() === "rock") {
+                switch (computerSelection.toString().toLowerCase()) {
                     case "rock":
                         console.log("Tie!");
                         break;
@@ -45,7 +49,7 @@
                         break;
                 }
             }
-            else if (playerSelection.toLowerCase() === "paper") {
+            else if (playerSelection.toString().toLowerCase() === "paper") {
                 switch (computerSelection.toLowerCase()) {
                     case "rock":
                         console.log(`You win! ${playerSelection} covers ${computerSelection}`);
@@ -60,7 +64,7 @@
                         break;
                 }
             }
-            else if (playerSelection.toLowerCase() === "scissors") {
+            else if (playerSelection.toString().toLowerCase() === "scissors") {
                 switch (computerSelection.toLowerCase()) {
                     case "rock":
                         console.log(`You lose! ${computerSelection} breaks ${playerSelection}`);
@@ -79,31 +83,36 @@
             return roundScore;
         }
 
-        const game = function () {
-            let score = 0;
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(button => button.addEventListener("click", function() {
+            playRound(button.textContent, getComputerChoice());
+        }));
 
-            let playerSelection = "";
+        // const game = function () {
+        //     let score = 0;
 
-            while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors") {
-                playerSelection = prompt("Rock, paper, or scissors");
-            }
+        //     let playerSelection = "";
 
-            let computerSelection = getComputerChoice();
-            const roundResults = playRound(playerSelection, computerSelection);
-            score += roundResults;
+        //     while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors") {
+        //         playerSelection = prompt("Rock, paper, or scissors");
+        //     }
 
-            if (score > 0) {
-                alert("You won!");
-            }
-            else if (score < 0) {
-                alert("You lose!");
-            }
-            else {
-                alert("You tied!")
-            }
-        }
+        //     let computerSelection = getComputerChoice();
+        //     const roundResults = playRound(playerSelection, computerSelection);
+        //     score += roundResults;
 
-        game();
+        //     if (score > 0) {
+        //         alert("You won!");
+        //     }
+        //     else if (score < 0) {
+        //         alert("You lose!");
+        //     }
+        //     else {
+        //         alert("You tied!")
+        //     }
+        // }
+
+        // game();
     </script>
 </body>
 
