@@ -11,7 +11,8 @@
     <button>Paper</button>
     <button>Scissors</button>
 
-    <div></div>
+    <div class="roundResult"></div>
+    <div class="score"></div>
 
     <script>
         function getComputerChoice() {
@@ -35,19 +36,19 @@
 
         const playRound = (playerSelection, computerSelection) => {
             let roundScore = 0;
-            const div = document.querySelector("div");
+            const roundResult = document.querySelector("div.roundResult");
 
             if (playerSelection.toString().toLowerCase() === "rock") {
                 switch (computerSelection.toString().toLowerCase()) {
                     case "rock":
-                        div.textContent = "Tie!";
+                        roundResult.textContent = "Tie!";
                         break;
                     case "paper":
-                        div.textContent = `You lose! ${computerSelection} covers ${playerSelection}`;
+                        roundResult.textContent = `You lose! ${computerSelection} covers ${playerSelection}`;
                         roundScore--;
                         break;
                     case "scissors":
-                        div.textContent = `You win! ${playerSelection} breaks ${computerSelection}`;
+                        roundResult.textContent = `You win! ${playerSelection} breaks ${computerSelection}`;
                         roundScore++;
                         break;
                 }
@@ -55,14 +56,14 @@
             else if (playerSelection.toString().toLowerCase() === "paper") {
                 switch (computerSelection.toLowerCase()) {
                     case "rock":
-                        div.textContent = `You win! ${playerSelection} covers ${computerSelection}`;
+                        roundResult.textContent = `You win! ${playerSelection} covers ${computerSelection}`;
                         roundScore++;
                         break;
                     case "paper":
-                        div.textContent = "Tie!";
+                        roundResult.textContent = "Tie!";
                         break;
                     case "scissors":
-                        div.textContent = `You lose! ${computerSelection} cuts ${playerSelection}`;
+                        roundResult.textContent = `You lose! ${computerSelection} cuts ${playerSelection}`;
                         roundScore--;
                         break;
                 }
@@ -70,52 +71,32 @@
             else if (playerSelection.toString().toLowerCase() === "scissors") {
                 switch (computerSelection.toLowerCase()) {
                     case "rock":
-                        div.textContent = `You lose! ${computerSelection} breaks ${playerSelection}`;
+                        roundResult.textContent = `You lose! ${computerSelection} breaks ${playerSelection}`;
                         roundScore--;
                         break;
                     case "paper":
-                        div.textContent = `You win! ${playerSelection} cuts ${computerSelection}`;
+                        roundResult.textContent = `You win! ${playerSelection} cuts ${computerSelection}`;
                         roundScore++;
                         break;
                     case "scissors":
-                        div.textContent = "Tie!";
+                        roundResult.textContent = "Tie!";
                         break;
                 }
             }
 
             return roundScore;
         }
+        let score = 0;
+        const scoreDiv = document.querySelector("div.score");
 
         const buttons = document.querySelectorAll("button");
         buttons.forEach(button => button.addEventListener("click", function() {
-            playRound(button.textContent, getComputerChoice());
+            score += playRound(button.textContent, getComputerChoice());
+            scoreDiv.textContent = score;
         }));
 
-        // const game = function () {
-        //     let score = 0;
-
-        //     let playerSelection = "";
-
-        //     while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors") {
-        //         playerSelection = prompt("Rock, paper, or scissors");
-        //     }
-
-        //     let computerSelection = getComputerChoice();
-        //     const roundResults = playRound(playerSelection, computerSelection);
-        //     score += roundResults;
-
-        //     if (score > 0) {
-        //         alert("You won!");
-        //     }
-        //     else if (score < 0) {
-        //         alert("You lose!");
-        //     }
-        //     else {
-        //         alert("You tied!")
-        //     }
-        // }
-
-        // game();
+            // 
+            
     </script>
 </body>
 
