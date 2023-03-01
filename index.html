@@ -90,7 +90,7 @@
         const scoreDiv = document.querySelector("div.score");
 
         const buttons = document.querySelectorAll("button");
-        buttons.forEach(button => button.addEventListener("click", function() {
+        buttons.forEach(button => button.addEventListener("click", function () {
             score += playRound(button.textContent, getComputerChoice());
             scoreDiv.textContent = score;
         }));
