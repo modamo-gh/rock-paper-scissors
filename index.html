@@ -11,6 +11,8 @@
     <button>Paper</button>
     <button>Scissors</button>
 
+    <div></div>
+
     <script>
         function getComputerChoice() {
             let computerChoice = "";
@@ -33,18 +35,19 @@
 
         const playRound = (playerSelection, computerSelection) => {
             let roundScore = 0;
+            const div = document.querySelector("div");
 
             if (playerSelection.toString().toLowerCase() === "rock") {
                 switch (computerSelection.toString().toLowerCase()) {
                     case "rock":
-                        console.log("Tie!");
+                        div.textContent = "Tie!";
                         break;
                     case "paper":
-                        console.log(`You lose! ${computerSelection} covers ${playerSelection}`);
+                        div.textContent = `You lose! ${computerSelection} covers ${playerSelection}`;
                         roundScore--;
                         break;
                     case "scissors":
-                        console.log(`You win! ${playerSelection} breaks ${computerSelection}`);
+                        div.textContent = `You win! ${playerSelection} breaks ${computerSelection}`;
                         roundScore++;
                         break;
                 }
@@ -52,14 +55,14 @@
             else if (playerSelection.toString().toLowerCase() === "paper") {
                 switch (computerSelection.toLowerCase()) {
                     case "rock":
-                        console.log(`You win! ${playerSelection} covers ${computerSelection}`);
+                        div.textContent = `You win! ${playerSelection} covers ${computerSelection}`;
                         roundScore++;
                         break;
                     case "paper":
-                        console.log("Tie!");
+                        div.textContent = "Tie!";
                         break;
                     case "scissors":
-                        console.log(`You lose! ${computerSelection} cuts ${playerSelection}`);
+                        div.textContent = `You lose! ${computerSelection} cuts ${playerSelection}`;
                         roundScore--;
                         break;
                 }
@@ -67,15 +70,15 @@
             else if (playerSelection.toString().toLowerCase() === "scissors") {
                 switch (computerSelection.toLowerCase()) {
                     case "rock":
-                        console.log(`You lose! ${computerSelection} breaks ${playerSelection}`);
+                        div.textContent = `You lose! ${computerSelection} breaks ${playerSelection}`;
                         roundScore--;
                         break;
                     case "paper":
-                        console.log(`You win! ${playerSelection} cuts ${computerSelection}`);
+                        div.textContent = `You win! ${playerSelection} cuts ${computerSelection}`;
                         roundScore++;
                         break;
                     case "scissors":
-                        console.log("Tie!")
+                        div.textContent = "Tie!";
                         break;
                 }
             }
